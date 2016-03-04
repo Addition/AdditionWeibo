@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="addressee_bg">#FCE6CB</color>
+    <color name="input_bar">#f7f7f7</color>
+    <color name="bg">#f0eff5</color>
+    <color name="title_bar">#B3B3B3</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#CDC9C9</color>
+    <color name="text_gray">#959595</color>
+    <color name="text_color">#7f7f7f</color>
+    <color name="common_bg">#e0e0e0</color>
+    <color name="break_line">#e5e5e5</color>
+    <color name="blue">#3eb6f3</color>
+    <color name="darkgrey">#dcdcdc</color>
+    <color name="grayblue">#21acf2</color>
+    <color name="loginTextColor">#d5dce4</color>
+    <color name="meTextColor">#434343</color>
+    <drawable name="blue">#3eb6f3</drawable>
+    <drawable name="white">#ffffff</drawable>
+    
+    <!-- 即时通讯 -->
+    <color name="user_detail_public_bg">#f3f3f3</color>
+    <color name="user_list_public_bg">#e5e6e7</color>
+</resources>

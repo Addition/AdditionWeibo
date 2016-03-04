@@ -1,0 +1,72 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_bg"
+        android:orientation="vertical" >
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#545454"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radioButtonIndex"
+                style="@style/group_tab"
+                android:checked="true"
+                android:drawableTop="@drawable/navigation_icon_letter"
+                android:text="@string/index_page" />
+
+            <RadioButton
+                android:id="@+id/radioButtonMessage"
+                style="@style/group_tab"
+                android:drawableTop="@drawable/navigation_icon_address"
+                android:gravity="center"
+                android:text="@string/message" />
+
+            <RelativeLayout
+                android:id="@+id/btn_plus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:padding="0dp"
+                android:background="@drawable/selector_navigation_bg">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:clickable="false"
+                    android:background="@drawable/navigation_icon_plus" />
+            </RelativeLayout>
+
+            <RadioButton
+                android:id="@+id/radioButtonFind"
+                style="@style/group_tab"
+                android:drawableTop="@drawable/navigation_icon_map"
+                android:text="@string/find_something" />
+
+            <RadioButton
+                android:id="@+id/radioButtonMe"
+                style="@style/group_tab"
+                android:drawableTop="@drawable/navigation_icon_me"
+                android:text="@string/me" />
+        </RadioGroup>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/radioGroup" >
+        </android.support.v4.view.ViewPager>
+    </RelativeLayout>
+
+
+</FrameLayout>
