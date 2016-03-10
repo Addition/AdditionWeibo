@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.weibo.sdk.android.Oauth2AccessToken;
 
+import weibo.genew.com.weibo.dao.TimelineDaoImpl;
 import weibo.genew.com.weibo.manager.SettingManager;
 import weibo.genew.com.weibo.manager.TimeLineManager;
 import weibo.genew.com.weibo.weiboapi.MyStatusesAPI;
@@ -17,6 +18,8 @@ public class WeiBoApplication extends Application
 
     private TimeLineManager timeLineManager;
 
+    private TimelineDaoImpl timelineDao;
+
     @Override
     public void onCreate()
     {
@@ -28,6 +31,8 @@ public class WeiBoApplication extends Application
     {
         settingManager = new SettingManager();
         timeLineManager = new TimeLineManager();
+        timelineDao = TimelineDaoImpl.getInstance(getApplicationContext());
+        timeLineManager.setTimelineDao(timelineDao);
     }
 
     public SettingManager getSettingManager()
@@ -46,6 +51,10 @@ public class WeiBoApplication extends Application
 
     public void setTimeLineManager(TimeLineManager timeLineManager) {
         this.timeLineManager = timeLineManager;
+    }
+
+    public TimelineDaoImpl getTimelineDao() {
+        return timelineDao;
     }
 
     public void updateOauth2AccessToken(Oauth2AccessToken oauth2AccessToken)

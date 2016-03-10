@@ -20,6 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import weibo.genew.com.weibo.dao.TimelineDaoImpl;
 import weibo.genew.com.weibo.listener.UpdateListener;
 import weibo.genew.com.weibo.model.TimeLineModel;
 import weibo.genew.com.weibo.utils.Utils;
@@ -32,6 +33,16 @@ public class TimeLineManager
 {
     private final String TAG = TimeLineManager.class.getName();
     private static final List<TimeLineModel> timeLineList = new LinkedList<TimeLineModel>();
+
+    private TimelineDaoImpl timelineDao;
+
+    public TimelineDaoImpl getTimelineDao() {
+        return timelineDao;
+    }
+
+    public void setTimelineDao(TimelineDaoImpl timelineDao) {
+        this.timelineDao = timelineDao;
+    }
 
     private MyStatusesAPI statusesAPI;
 
@@ -99,8 +110,12 @@ public class TimeLineManager
                     final Bitmap bitmap = Utils.getBitmapFromURL(timeLineModel.getUser().getProfile_image_url(),100,100);
                     timeLineModel.setBitmap(bitmap);
                 }
-                Log.d(TAG, "解释成功：timeLineModels size：" +timeLineModels.size());
+                Log.d(TAG, "解释成功：timeLineModels size：" + timeLineModels.size());
                 addAll(timeLineModels);
+                for(TimeLineModel timeLineModel : timeLineModels)
+                {
+                    getTimelineDao().insert(timeLineModel);
+                }
                 onUpdated();
             } catch (JSONException e) {
                 e.printStackTrace();

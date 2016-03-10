@@ -10,27 +10,49 @@ import org.json.JSONObject;
 import java.util.LinkedList;
 import java.util.List;
 
+import weibo.genew.com.weibo.dao.Column;
+import weibo.genew.com.weibo.dao.ID;
+import weibo.genew.com.weibo.dao.TableName;
+
+@TableName(value = "timeline_table")
 public class TimeLineModel{
     private static final String TAG = TimeLineModel.class.getName();
 	private String created_at; // 微博创建时间
+	@ID(value = "id", autoincrement = false)
 	private Long id; // 微博ID
+	@Column()
 	private Long mid; // 微博MID
+	@Column()
 	private String idstr; // 字符串型的微博ID
+	@Column()
 	private String text; // 微博信息内容
+	@Column()
 	private String source; // 微博来源
+	@Column()
 	private Boolean favorited; // 是否已收藏，true：是，false：否
+	@Column()
 	private Boolean truncated; // boolean 是否被截断，true：是，false：否
+	@Column()
 	private String in_reply_to_status_id; // 回复ID
+	@Column()
 	private String in_reply_to_user_id; // 回复人UID
+	@Column()
 	private String in_reply_to_screen_name; // 回复人昵称
+	@Column()
 	private String thumbnail_pic; // 缩略图片地址，没有时不返回此字段
+	@Column()
 	private String bmiddle_pic; // 中等尺寸图片地址，没有时不返回此字段
+	@Column()
 	private String original_pic; // 原始图片地址，没有时不返回此字段
 	private GeoModel geo; // 地理信息字段
 	private UserModel user;// object 微博作者的用户信息字段
+	@Column()
 	private Integer reposts_count; // int 转发数
+	@Column()
 	private Integer comments_count;// int 评论数
+	@Column()
 	private Integer attitudes_count;// int 表态数
+	@Column()
 	private Integer mlevel; // int 暂未支持
 	private VisibleModel visible; // object 微博的可见性及指定可见分组信息
     private Bitmap bitmap;
